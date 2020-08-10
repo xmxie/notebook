@@ -6,13 +6,13 @@
 | **git add**    |                             |
 | **git commit** | -m "distribution"           |
 
-## 版本回溯
+## 版本回溯g
 
 | 命令                       | 作用                                                         |
 | -------------------------- | ------------------------------------------------------------ |
 | **git status**             | 查看工作区状态                                               |
 | **git diff**               | 查看修改文件                                                 |
-| **git reset --hard**       | 版本回退，hard后接版本号或使用HEAD指针                       |
+| **git reset --hard**       | 版本回退，hard后接版本号或使用HEAD指针。上一个版本就是`HEAD^`，上上一个版本就是`HEAD^^`，当然往上100个版本写100个`^`比较容易数不过来，所以写成`HEAD~100` |
 | **git reset HEAD \<file>** | 回退暂存区                                                   |
 | **git restore **           | 最新版git的回退命令                                          |
 | **git log**                | 查看提交历史<br>--pretty=oneline 仅显示一行信息              |
@@ -25,7 +25,7 @@
 | 命令                                             | 作用                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------ |
 | **ssh-keygen -t rsa -C "youremail@example.com"** | 生成RSA格式的SSH key                                         |
-| **git remote**                                   | 完整用法：**git remote add origin git@server-name: path/repo-name.git**<br>关联远程仓库<br><u>git remote remove \<name></u> 删除远程仓库 |
+| **git remote**                                   | 完整用法：**git remote add origin git@server-name: path/repo-name.git**<br>关联远程仓库<br><u>git remote remove \<name></u> 删除远程仓库<br>-v显示所有关联仓库详细信息 |
 | **git push**                                     | 第一次使用：**git push -u origin master**<br>将本地分支推送到远程仓库，第一次使用时 -u 来将本地的master分支和远程的master分支关联起来 |
 | **git clone**                                    | 克隆项目到本地<br>默认git://协议时使用ssh，通过ssh支持的原声git 协议速度最快 |
 
@@ -59,3 +59,10 @@
 ### git 中文乱码问题
 
 git config --global core.quotepath false
+
+### 代理设置
+
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+git config --global --unset http.proxy 
+git config --global --unset https.proxy

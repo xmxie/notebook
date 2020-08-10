@@ -1,0 +1,4 @@
+OpenCV官方编译库为无cuda版本，需自主编译
+openCV configure需要使用SSL，连接失败，可以自己查看DownloadLog文件下载失败文件（最好先过墙把http下载的都下好）
+Cuda9.1不支持VS2017，需要使用v140(VS2015)平台工具集进行编译，使用cmake的时候需要在configure中输入v140
+自主编译的结果不支持中文路径（官方编译版本无此问题，未解决）

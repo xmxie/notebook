@@ -10,6 +10,8 @@ Rigidbody —— set the height and it will fall down
 
 **Windows-2D-tile palette** a helpful tool to design scene 
 
+## 延时处理
+
 
 
 ## 组件获取
@@ -58,7 +60,48 @@ public bool **SweepTest**([Vector3](https://docs.unity3d.com/ScriptReference/Vec
 
 ## Animation
 
-### Tip
+## RigidBody
+
+A kinematic Rigidbody cannot be affected by external forces such as collisions, but it can still collide with other GameObjects. 
+
+## LightingSetting
+
+Environment/Gradient
+
+三个属性，决定不同位置的光照颜色
+
+## RayCast
+
+## Nav Mesh（AI）
+
+The **NavMesh** is an invisible shape over the ground that defines an area within which selected GameObjects can move.  
+
+### navMesh Agent
+
+## Cinemachine
+
+Cinemachine is Unity’s answer to all things relating to cameras in games. A basic summary of this system is as follows:
+
+- One or more ‘virtual’ cameras are created in a Scene.
+- These virtual cameras are managed by a component called the Cinemachine Brain.
+- The Cinemachine Brain is attached to the same GameObject as a Camera component — by default this will be the Main Camera GameObject.
+- The Cinemachine Brain manages all of the virtual cameras and decides which virtual camera (or combination of virtual cameras) the actual camera should follow.
+
+## PostProcessig
+
+两个关键组件，PostProcessing Layer & PostprocessingVolume
+
+### PostprocessingVolume
+
+Color Grading Effect
+
+可以改善画面的光暗变换
+
+Ambient Occlusion mimics
+
+Ambient Occlusion mimics the real-life effect of light not reaching tighter corners by darkening those areas.
+
+## Tip
 
 Transition中的Has Exit Time属性会让状态在固定事件后退出
 

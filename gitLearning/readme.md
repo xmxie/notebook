@@ -35,12 +35,12 @@
 | ---------------------------------- | ------------------------------------------------------------ |
 | **git branch \<branch_name>**      | 创建分支<br>git branch 本身用于查看所有分支<br><u>-d 用于删除分支<br>-D 强制删除分支</u> |
 | **git checkout -b \<branch_name>** | 创建并切换分支<br>相当于以下两条命令<br>git branch dev<br>git checkout dev<br>**<u>git checkout -b dev origin/dev**</u> 创建远程origin的dev分支到本地 |
-| **git merge \<name>**              | 合并分支<br><u>--no-ff 参数，禁用Fast forward</u>，创建新的commit，同时需要使用-m参数对commit进行描述（ <u>fast forward 合并就看不出来曾经做过合并</u>。） |
+| **git merge \<name>**              | 合并分支<br><u>--no-ff 参数，禁用Fast forward</u>，创建新的commit，同时需要使用-m参数对commit进行描述（ <u>fast forward 合并就看不出来曾经做过合并</u>。）<br/>--squash 将多个提交合并为一个，当开发分支上的提交并不都具有单独的意义时应该选择<br/> |
 | ***git switch***                   | 最新版的git，用于切换分支的命令<br><u>-c 用于创建并切换分支</u> |
 | **git stash**                      | 保存当前工作区<br><u>git stash list 显示stash临时保存的工作区<br>git stash pop 恢复并删除临时保存的工作区<br>git stash apply 恢复工作区，但不删除临时文件<br>git stash drop 删除临时保存的工作区</u> |
 | **git cherry-pick \<id>**          | 复制一个特定的提交到当前分支                                 |
 | **git pull**                       | 拉取远程仓库的最新更新                                       |
-| **git rebase**                     | 将本地的提交整理为一条线，便于查看提交历                     |
+| **git rebase**                     | 将本地的提交整理为一条线，便于查看提交                       |
 
 ## 标签管理
 

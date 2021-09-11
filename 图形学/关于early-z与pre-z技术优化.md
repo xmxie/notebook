@@ -18,7 +18,7 @@
 
 ##### 1.CPU只能对对象进行排序，即几何级别的排序。因此当对象存在大量交叉现象时，部分片元无法享受到early-z的剔除效果。
 
-![image-20210911140511550](C:\Users\xiexm\AppData\Roaming\Typora\typora-user-images\image-20210911140511550.png)
+![image-20210911140511550](关于early-z与pre-z技术优化.assets\image-20210911140511550.png)
 
 ##### 2.合批操作可能会导致early-Z的失效（或者强行由前往后排序导致合批失效）
 
@@ -32,7 +32,7 @@
 
 优先考虑Early-Z,我们需要至少3次drawcall，分别是{[1],[5],[2,3,4]}，但是只有15会进行几乎完整的片元着色器计算，234都会被剔除。
 
-![image-20210911141701758](C:\Users\xiexm\AppData\Roaming\Typora\typora-user-images\image-20210911141701758.png)
+![image-20210911141701758](关于early-z与pre-z技术优化.assets/image-20210911141701758.png)
 
 实际的场景通常更为复杂，因此我们一般优先考虑的依然是合批操作。Unity关于从前往后的排序也是在渲染排序中没有其他设置时才会进行的默认操作。
 
@@ -74,7 +74,7 @@ Pre-Z其实也是部分硬件实现early-Z的一种方法，实现方法也非�
 
 在讲这种特殊的early-z之前。先来简单介绍下移动平台常用的渲染流程TBR，在这之前还要先看下下传统的渲染IMR(Immediate Mode Rendering),此处引用的图片都是来自于PowerVR的介绍[PowerVR Hardware (imgtec.com)](http://cdn.imgtec.com/sdk-documentation/PowerVR+Hardware.Architecture+Overview+for+Developers.pdf)
 
-![image-20210911151733578](C:\Users\xiexm\AppData\Roaming\Typora\typora-user-images\image-20210911151733578.png)
+![image-20210911151733578](关于early-z与pre-z技术优化.assets/image-20210911151733578.png)
 
 <center>传统渲染 IMR
 
@@ -82,7 +82,7 @@ Pre-Z其实也是部分硬件实现early-Z的一种方法，实现方法也非�
 
 但是移动端平台并没有足够的带宽和高速缓存来传输和记录这么多数据，所以硬件商就用了另一套管线，TBR
 
-![image-20210911152246410](C:\Users\xiexm\AppData\Roaming\Typora\typora-user-images\image-20210911152246410.png)
+![image-20210911152246410](关于early-z与pre-z技术优化.assets/image-20210911152246410.png)
 
 <center>TBR</center>
 
@@ -92,7 +92,7 @@ Pre-Z其实也是部分硬件实现early-Z的一种方法，实现方法也非�
 
 而PowerVR还提出了一个叫TBDR（Tile Based Deferred Rendering）的东西
 
-![image-20210911154450624](C:\Users\xiexm\AppData\Roaming\Typora\typora-user-images\image-20210911154450624.png)
+![image-20210911154450624](关于early-z与pre-z技术优化.assets/image-20210911154450624.png)
 
 > Deferred rendering means that the architecture will defer all texturing and shading operations until all  objects that could be deferred, primarily opaque geometry, have been tested for visibility. The  efficiency of HSR is such that overdraw can be removed entirely for completely opaque renders. This  significantly reduces system memory bandwidth requirements.
 

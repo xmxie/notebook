@@ -114,3 +114,18 @@ Transition中的Has Exit Time属性会让状态在固定事件后退出
 Animations are used to move and rotate all the GameObjects within a particular hierarchy.
 
 Apply Root Motion is enabled on your Animator component,  any movement of the root in the animation will be applied every frame. 
+
+
+
+
+
+## 实用接口
+
+将世界坐标转为相对坐标[Unity - Scripting API: Transform.InverseTransformPoint (unity3d.com)](https://docs.unity3d.com/ScriptReference/Transform.InverseTransformPoint.html)
+
+Vector3 Transform.InverseTransformPoint([Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html) **position**)
+
+Transforms `position` from world space to local space.
+
+*为什么记录：两个物体的相对坐标会计算上所有父对象的scale变化，并不能简单的通过pos2-pos1得到
+
